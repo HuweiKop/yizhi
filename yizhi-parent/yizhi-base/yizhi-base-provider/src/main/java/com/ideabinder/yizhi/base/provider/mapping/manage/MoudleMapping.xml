@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ideabinder.yizhi.base.provider.dao.manage.IMoudleDao">
+
+    <select id="selectAllMoudleNames" resultType="String">
+        select moudleName from t_mng_moudle
+        where isActive=1
+    </select>
+
+    <select id="selectMoudleNameByRoleId" parameterType="int" resultType="String">
+        select MoudleName from t_mng_role_moudle
+        where role_id=#{id}
+    </select>
+
+    <select id="selectMoudleNamesByRoleIds" parameterType="int" resultType="String">
+        select distinct MoudleName from t_mng_role_moudle
+        where role_id IN
+        <foreach collection="list" open="(" item="item" index="index"
+                 separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+</mapper>

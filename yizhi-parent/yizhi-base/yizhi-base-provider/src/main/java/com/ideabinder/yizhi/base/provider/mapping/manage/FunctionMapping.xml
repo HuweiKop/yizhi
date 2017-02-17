@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ideabinder.yizhi.base.provider.dao.manage.IFunctionDao">
+
+    <select id="selectAllFunctionNames" resultType="String">
+        SELECT functionName from t_mng_function
+        WHERE isActive=1
+    </select>
+
+    <select id="selectFunctionNameByRoleId" parameterType="int" resultType="String">
+        select FunctionName from t_mng_role_function
+        where role_id=#{id}
+    </select>
+
+    <select id="selectFunctionNamesByRoleIds" parameterType="int" resultType="String">
+        select distinct FunctionName from t_mng_role_function
+        where role_id IN
+        <foreach collection="list" open="(" item="item" index="index"
+                 separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+</mapper>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ideabinder.yizhi.base.provider.dao.manage.IUserDao">
+
+    <select id="login" parameterType="com.ideabinder.yizhi.base.api.model.db.manage.UserDb" resultType="int">
+        select user_id from t_mng_user
+        where user_name=#{userName} and password=#{password} and isActive=1
+    </select>
+</mapper>

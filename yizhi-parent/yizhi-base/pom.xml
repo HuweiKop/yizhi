@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>yizhi-parent</artifactId>
+        <groupId>com.ideabinder.yizhi</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>yizhi-base</artifactId>
+    <packaging>pom</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring_version>3.1.2.RELEASE</spring_version>
+        <zookeeper_version>3.3.6</zookeeper_version>
+        <javassist_version>3.18.1-GA</javassist_version>
+        <netty_version>3.2.5.Final</netty_version>
+        <log4j_version>2.0-rc1</log4j_version>
+        <aspectjweaver_version>1.6.8</aspectjweaver_version>
+        <asm_version>2.2.3</asm_version>
+        <cglib_version>2.1.3</cglib_version>
+        <commonslang3_version>3.3.2</commonslang3_version>
+        <commonscodec_version>1.9</commonscodec_version>
+        <dubbo_version>2.5.3</dubbo_version>
+        <proxool_version>0.9.1</proxool_version>
+        <zkclient_version>0.1</zkclient_version>
+        <jstl_version>1.2</jstl_version>
+        <servlet_version>2.4</servlet_version>
+        <jsp_version>2.0</jsp_version>
+        <jackson_version>1.9.8</jackson_version>
+        <mysql_version>5.1.30</mysql_version>
+        <slf4j_version>1.7.7</slf4j_version>
+        <redis_version>2.5.1</redis_version>
+        <spring_data_redis_version>1.2.1.RELEASE</spring_data_redis_version>
+        <fastjson_version>1.2.5</fastjson_version>
+        <redis_clients_version>2.5.1</redis_clients_version>
+        <mybatis-common_version>0.0.3</mybatis-common_version>
+        <service-cache_version>0.0.4</service-cache_version>
+        <junit_version>4.11</junit_version>
+        <dao-api_version>0.0.3</dao-api_version>
+        <uic_version>0.0.4</uic_version>
+        <spring-common_version>0.0.3</spring-common_version>
+    </properties>
+
+    <modules>
+        <module>yizhi-base-api</module>
+        <module>yizhi-base-provider</module>
+        <module>yizhi-base-consumer</module>
+        <module>yizhi-base-cms</module>
+    </modules>
+
+
+</project>

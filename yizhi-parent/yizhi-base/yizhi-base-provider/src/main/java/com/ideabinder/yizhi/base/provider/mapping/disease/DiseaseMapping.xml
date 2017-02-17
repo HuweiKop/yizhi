@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ideabinder.yizhi.base.provider.dao.disease.IDiseaseDao">
+
+	<select id="selectDiseaseById" parameterType="int" resultMap="diseaseDb">
+		select * from t_dis_disease
+		where dis_id=#{id}
+	</select>
+
+
+	<select id="selectCount" parameterType="com.ideabinder.yizhi.base.api.model.query.disease.DiseasePageQueryModel"
+		resultType="int">
+		select count(*) from t_dis_disease
+		where isActive=1 and dis_name
+		like CONCAT('%','${nameValue}','%')
+		<if test="status!=0">
+			and status=#{status}
+		</if>
+	</select>
+
+	<select id="selectDiseasePage" parameterType="com.ideabinder.yizhi.base.api.model.query.disease.DiseasePageQueryModel"
+		resultMap="diseaseDb">
+		select * from t_dis_disease
+		where isActive=1 and dis_name
+		like CONCAT('%','${nameValue}','%')
+		<if test="status!=0">
+			and status=#{status}
+		</if>
+		order by ${orderBy}
+		limit #{offset},#{pageSize}
+	</select>
+
+	<select id="selectDiseaseList" resultMap="diseaseDb">
+		select * from t_dis_disease where isActive=1
+	</select>
+
+	<insert id="insertDisease" parameterType="com.ideabinder.yizhi.base.api.model.db.disease.DiseaseDb" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO t_dis_disease
+		(createTime,updateTime,isActive,dis_name,py_name,organFunction,diseaseExplain,symptom,modeType,earlyStage,interimStage,laterStage,description
+		,t_notes,n_notes,m_notes,StagePicUrl,status)
+		VALUES
+		(#{createTime},#{updateTime},#{isActive},#{name},#{pinyinName},#{organFunction},#{diseaseExplain},#{symptom},#{modeType},#{earlyStage},#{interimStage}
+		,#{laterStage},#{notes},#{tNotes},#{nNotes},#{mNotes},#{stagePicUrl},#{status})
+	</insert>
+	<update id="updateDisease" parameterType="com.ideabinder.yizhi.base.api.model.db.disease.DiseaseDb">
+		UPDATE t_dis_disease SET
+		dis_name=#{name},py_name=#{pinyinName},organFunction=#{organFunction},diseaseExplain=#{diseaseExplain},symptom=#{symptom},modeType=#{modeType}
+		,earlyStage=#{earlyStage},interimStage=#{interimStage},laterStage=#{laterStage},description=#{notes}
+		,t_notes=#{tNotes},n_notes=#{nNotes},m_notes=#{mNotes},StagePicUrl=#{stagePicUrl},updateTime=#{updateTime}
+		WHERE dis_id=#{id}
+	</update>
+	<update id="updateDiseaseStatus" parameterType="com.ideabinder.yizhi.base.api.model.db.disease.DiseaseDb">
+		update t_dis_disease set
+		status=#{status},updateTime=#{updateTime}
+		where dis_id=#{id}
+	</update>
+
+	<select id="selectDiseaseIdsByInspectionId" parameterType="int" resultType="int">
+		select dis_id from t_dis_disease_inspection where insp_id=#{id} and isActive=1
+	</select>
+
+	<select id="selectCategoryIdsByDiseaseId" parameterType="int" resultType="int" >
+		select dtc_id from t_dis_disease_therapeutic_category where dis_id=#{id} and isActive=1
+	</select>
+
+	<resultMap type="com.ideabinder.yizhi.base.api.model.db.disease.DiseaseDb" id="diseaseDb">
+		<id property="id" column="dis_id" />
+		<result property="name" column="dis_name" />
+		<result property="pinyinName" column="py_name" />
+		<result property="notes" column="description" />
+		<result property="organFunction" column="organFunction" />
+		<result property="diseaseExplain" column="diseaseExplain" />
+		<result property="symptom" column="symptom" />
+		<result property="modeType" column="modeType" />
+		<result property="earlyStage" column="earlyStage" />
+		<result property="interimStage" column="interimStage" />
+		<result property="laterStage" column="laterStage" />
+		<result property="tNotes" column="t_notes" />
+		<result property="nNotes" column="n_notes" />
+		<result property="mNotes" column="m_notes" />
+		<result property="stagePicUrl" column="StagePicUrl" />
+		<result property="status" column="status" />
+		<result property="createTime" column="createTime" />
+		<result property="updateTime" column="updateTime" />
+		<result property="isActive" column="isActive" />
+	</resultMap>
+</mapper>
