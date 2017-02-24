@@ -34,13 +34,14 @@ public class Main {
 //        user.setName("xx5554443332221166111");
 //        user.setAge1(33);
 
-        UserServiceImpl service = (UserServiceImpl) context.getBean(UserServiceImpl.class);
-        UserDb user = service.getUserById(1);
-        System.out.println(user.getId());
-        System.out.println(user.getName());
-        System.out.println(user.getAge1());
-        user.setAge1(44);
-        service.updateAndInsert(user);
+//        UserServiceImpl service = (UserServiceImpl) context.getBean(UserServiceImpl.class);
+//        UserDb user = service.getUserById(1);
+//        System.out.println(user.getId());
+//        System.out.println(user.getName());
+//        System.out.println(user.getAge1());
+//        user.setAge1(44);
+//        service.updateAndInsert(user);
+
 //        UserDb user = userDao.getById(1);
 //        System.out.println(user.getId());
 //        System.out.println(user.getName());
