@@ -13,8 +13,8 @@ public class Main {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String[]{"app-context.xml"});
         context.start();
 
-//        IDiseaseService service = context.getBean(IDiseaseService.class);
-//        service.getDiseaseList();
+        IDiseaseService service = context.getBean(IDiseaseService.class);
+        service.getDiseaseList();
 
         try {
             System.in.read(); // 按任意键退出
