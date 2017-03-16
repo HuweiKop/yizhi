@@ -66,13 +66,6 @@ public class HengMethod extends AbstractMethod {
         }
         System.out.println(total);
 
-        return total + next(map);
-    }
-
-    @Override
-    public int next(Map map) {
-        if(this.next!=null)
-            return this.next.method(map);
-        return 0;
+        return total + next(map, this.next);
     }
 }

@@ -61,17 +61,10 @@ public class SameMethod extends AbstractMethod {
         }
 
         System.out.println(total);
-        if (total + next(map) == 0)
+        if (total + next(map, this.next) == 0)
             return 0;
         else
             return method(map);
-    }
-
-    @Override
-    public int next(Map map) {
-        if(this.next!=null)
-            return this.next.method(map);
-        return 0;
     }
 
     private List<Num> getNumXY(int num, Map map) {

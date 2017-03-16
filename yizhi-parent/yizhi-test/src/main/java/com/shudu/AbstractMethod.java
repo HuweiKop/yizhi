@@ -6,5 +6,9 @@ package com.shudu;
 public abstract class AbstractMethod {
     public abstract int method(Map map);
 
-    public abstract int next(Map map);
+    public int next(Map map, AbstractMethod next) {
+        if(next!=null)
+            return next.method(map);
+        return 0;
+    }
 }
