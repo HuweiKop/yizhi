@@ -14,18 +14,18 @@
 		<repository>
 			<id>nexus-zmb-releases</id>
 			<name>Nexus Release Repository</name>
-			<url>http://10.90.0.31:8081/nexus/content/repositories/releases/</url>
+			<url>http://127.0.0.1:8081/nexus/content/repositories/releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>nexus-zmb-snapshots</id>
 			<name>Nexus Snapshot Repository</name>
-			<url>http://10.90.0.31:8081/nexus/content/repositories/snapshots/</url>
+			<url>http://127.0.0.1:8081/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 	<repositories>
 		<repository>
 			<id>nexus</id>
-			<url>http://10.90.0.31:8081/nexus/content/groups/public/</url>
+			<url>http://127.0.0.1:8081/nexus/content/groups/public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>

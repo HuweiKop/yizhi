@@ -1,0 +1,16 @@
+package com.huwei.dubbo.bean;
+
+/**
+ * Created by huwei on 2017/3/30.
+ */
+public class Product {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}

@@ -3,6 +3,7 @@ package com.test.netty;
 import org.jboss.netty.bootstrap.ClientBootstrap;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.channel.socket.nio.NioClientSocketChannelFactory;
+import org.jboss.netty.handler.codec.serialization.ObjectEncoder;
 
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executors;
@@ -19,7 +20,7 @@ public class HelloClient {
         bootstrap.setPipelineFactory(new ChannelPipelineFactory() {
             @Override
             public ChannelPipeline getPipeline() throws Exception {
-                return Channels.pipeline(new HelloClientHandler());
+                return Channels.pipeline(new ObjectEncoder(),new ObjectClientHandler());
             }
         });
 
